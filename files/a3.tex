@@ -1,0 +1,120 @@
+\documentclass[addpoints,12pt]{exam}
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage{pdfpages}
+\usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[font=small]{caption}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage[thinc]{esdiff}
+
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\x}{\times}
+\newcommand{\rto}{\xrightarrow}
+\newcommand{\lto}{\lrightarrow}
+\newcommand{\tbf}{\textbf}
+
+\pagestyle{headandfoot}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\definecolor{coral}{RGB}{255,127,80}
+
+\begin{document}
+
+\firstpageheader{EECS 230 Assignment 3}{ }{\makebox[3 in]{Spring 2024}}
+\noindent Total: 10 points for 5 questions, Due at \textbf{11:59PM April 5, 2024} \\
+\noindent What to submit: Put your answers in solution sections bellow and submit a PDF to CatCourses. Select all choices that apply for multiple-choices problems. \\ \\
+\noindent Student Name:
+\runningheadrule
+\runningheader{Assignment 1}{}{Page \thepage\ of \numpages}
+
+\begin{center}
+\makebox[\textwidth]{\enspace\hrulefill}\\ 
+\end{center}
+
+
+
+\begin{questions}
+
+\question [1] Calculate the probability of the sentence \textit{i want to eat lunch}, given the probabilities for a bi-gram language model in Fig. \ref{fig:bigram}. Assume P(i|<s>)=0.19 with start-symbol <s> and P(</s>|lunch)= 0.40 with end-symbol </s>.
+
+\begin{figure}[hp]
+    \centering
+    \includegraphics[width=.8\textwidth]{fig/bigram.png}
+    \caption{Bigram probabilities for eight words learned from a corpus. Zero probabilities are in gray. The rows are previous words and the columns are next words.}
+    \label{fig:bigram}
+\end{figure}
+
+\textbf{\textit{{\color{coral} Solution:}}}
+
+\question [2] Consider a single-headed self-attention mechanism that processes $N$ input tokens of $D$ dimensions to produce $N$ output tokens of the same size. How many weights and biases are used to compute the queries, keys, and values that have $D$ dimensions? What is the size of the attention matrix? If not using attention, how many weights and biases would there be in a fully connected network relating all $DN$ inputs to all $DN$ outputs?
+
+\textbf{\textit{{\color{coral} Solution:}}}
+
+\question [3] Consider the softmax operation $\mathbf{y}=\text{softmax}(\mathbf{z})$ on a vector $\mathbf{z}=[z_1,z_2,z_3]$.
+
+\begin{parts}
+    \part Given values: $z_1=-3,z_2 =1,z_3=2$, compute the 9 derivatives, $\dfrac{\partial y_i}{\partial z_j}$ for all $i, j \in {1, 2, 3}$. What do you conclude?
+    
+    \textbf{\textit{{\color{coral} Solution:}}}
+    \part Does the output change due to a scaling of the input, i.e. $\text{softmax}(c\mathbf{z})$ for all non-zero $c$?
+    
+    \textbf{\textit{{\color{coral} Solution:}}}
+    \part Does the output change due to a shift of the input, i.e. $\text{softmax}([z_1 + c,z_2 + c,z_3 + c]])$ for all real $c$?
+    
+    \textbf{\textit{{\color{coral} Solution:}}}
+\end{parts}
+
+
+
+
+\question [1] Which of the following are true about recurrent neural networks?
+
+\begin{enumerate}[label=(\alph*)]
+\item Training recurrent neural networks can be impeded by the exploding gradient problem
+\item Unlike standard feedforward networks, recurrent neural networks can learn from sequences of variable length.
+\item Gradient clipping might help if your RNN is troubled by vanishing gradients.
+\item None of the above
+\end{enumerate}
+
+\textbf{\textit{{\color{coral} Solution:}}}
+
+\question [3] This question is about fine-tuning a large language model.
+\begin{parts}
+    \part What is the advantage of LoRA(low-rank adaptation) over adaptor module for parameter-efficient fine-tuning of large language model? Give your answer in a few sentences.
+
+    \textbf{\textit{{\color{coral} Solution:}}}
+
+    \part Use the provided notebook tutorial for fine-tuning Gemma models using LoRA. (\url{https://colab.research.google.com/drive/1Ntlh1cXjcQ_RKSYPpVIhEVaufkaDNxfE?usp=sharing}) Gemma is a family of lightweight open models from Google, and we will fine-tune Gemma using Databricks Dolly 15k dataset.
+    
+
+    Show the responses to the following instruction \textbf{before} and \textbf{after} fine-tuning.
+    
+
+    \begin{center}
+        What should I do on a trip to Europe?
+    \end{center}
+    
+    \textbf{\textit{{\color{coral} Solution:}}}
+\end{parts}
+
+\end{questions}
+\end{document}
